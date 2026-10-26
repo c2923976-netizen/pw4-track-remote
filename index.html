@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta name="theme-color" content="#101c24"><title>PW4 · 履带遥控</title><link rel="stylesheet" href="style.css"></head>
+<body><main><header><span>PW4 / TRACK REMOTE</span><small id="badge">未连接</small></header><h1>履带遥控</h1><p class="intro">按住行驶，松手停车。</p>
+<div class="connect-row"><button id="connect">连接 E104-BT08</button><button id="disconnect" disabled>断开</button></div>
+<div id="status" role="status">先连接蓝牙，再操作方向按钮</div>
+<section class="pad" aria-label="方向控制"><button class="direction forward" data-key="w" disabled><b>↑</b><span>W · 前进</span></button><button class="direction left" data-key="a" disabled><b>←</b><span>A · 左转</span></button><div class="center">PW4</div><button class="direction right" data-key="d" disabled><b>→</b><span>D · 右转</span></button><button class="direction back" data-key="s" disabled><b>↓</b><span>S · 后退</span></button></section>
+<button id="stop" disabled>■ 停止</button><p id="error" role="alert"></p>
+<details><summary>第一次使用 / 车上怎么供电</summary><ol><li>iPhone 使用 Bluefy 打开本页，并允许蓝牙权限。</li><li>先在 nRF Connect 断开 E104-BT08，再点上方连接。</li><li>Arduino 使用车载充电宝从 USB 口供电；电机仍使用原电池。不要把电机电池接 Arduino 的 5V 引脚。</li><li>保留蓝牙 3.3V、GND、TXD→D2，以及已有的电机控制线。</li><li>手机只通过蓝牙发送指令，不需要 USB 连接电脑。首次试车让履带悬空。</li></ol><p>本页需先联网加载。加载后遥控指令通过蓝牙传输。多指操作会停车，需要松开所有按钮后再按。</p></details>
+<footer>松开、切出页面或锁屏时尝试发送停止。通信中断后，板载程序约 1 秒内停止驱动；车辆可能仍有惯性。长时间保持不动时，部分充电宝会自动断电，请先测试。</footer></main><script src="app.js"></script></body></html>
